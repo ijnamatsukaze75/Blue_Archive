@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <nav class="flex items-center px-5 py-6 w-full">    
+        <div>
+            <img src="/logo.svg">
+        </div>
+        <div class="max-w-150">
+            <h1 class="font-sans font-extrabold text-4xl">ANGRY TEXT <br> CONVERTER</h1>
+            <p>Tidak semua orang tega menulis dengan huruf kapital. Meski tombol Caps Lock dan Shift tersedia, ada kalanya kita ingin menyampaikan amarah tanpa benar-benar menekan tombol tersebut dengan penuh emosi.</p>
+        </div>
+    </nav>
+    <section class="flex items-center px-15">
+        <div class="mx-5">
+        <p>Masukan teks di sini:</p>
+        <textarea name="Put-Text" id="teks" placeholder="Aku sebenarnya tidak marah" class="border border-black rounded-lg w-150 h-100 p-3"></textarea>
+        <button id="BuatMarah" class="bg-red-500 p-2 translate-x-122 rounded-lg text-white hover:bg-red-400 cursor-pointer">Make it angry</button>
+        </div>
+        <div class="mx-10">
+            <p>Hasil:</p>
+            <p id="hasil" class="border border-black rounded-lg w-150 h-100 bg-black p-3 text-white"></p>
+            <div class="flex flex-row">
+                <p class="p-4">Kirim ke whatsapp:</p>
+                <input type="tel" id="No-telp" placeholder="08123456789" class="p-4 border border-black rounded-lg">
+                <button id="sendWhatsApp" class="bg-green-700 p-2 rounded-lg text-white hover:bg-green-600 cursor-pointer">Send</button>
+            </div>
+            </div>
+    </section>
+
+    <script>
+        // Mengambil elemen-elemen yang diperlukan dari DOM
+        const userInput = document.getElementById("teks");
+        const hasil = document.getElementById("hasil");
+        const buatMarahButton = document.getElementById("BuatMarah");
+        const sendWhatsAppButton = document.getElementById("sendWhatsApp");
+        const noTelpInput = document.getElementById("No-telp");
+
+        // Fungsi untuk mengubah teks menjadi huruf kapital
+        buatMarahButton.addEventListener("click", () => {
+            const teks = userInput.value;
+            const angryText = teks.toUpperCase();
+            hasil.textContent = angryText;
+        });
+
+        // Fungsi untuk mengirim teks ke WhatsApp
+        sendWhatsAppButton.addEventListener("click", () => {
+            const teks = hasil.textContent;
+            const noTelp = noTelpInput.value;
+
+            if (teks && noTelp) {
+                const url = https://wa.me/${noTelp}?text=${encodeURIComponent(teks)};
+                window.open(url, "_blank");
+                
+            } else {
+                alert("Silakan masukkan teks dan nomor WhatsApp terlebih dahulu.");
+            }
+        });
+    </script>
+
+</body>
+</html>

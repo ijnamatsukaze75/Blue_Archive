@@ -1,0 +1,50 @@
+body {
+    height: 100vh;
+    background-color: white;
+    font-family: sans-serif;
+
+}
+
+.menu-utama {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 100%;
+
+}
+
+.imgs {
+    margin-top: 20px;
+}
+
+.tema {
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    gap: 10px;
+}
+
+.text1 {
+    flex-direction: row;
+    flex: 1;
+    width: 100%;
+}
+
+.text2 {
+    flex-direction: row;
+    flex: 1;
+}
+
+.container {
+    flex-direction: row;
+    display: flex;
+    width: 80%;
+}
+
+.b1 {
+    background-color: red;
+}
